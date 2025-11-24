@@ -1,6 +1,7 @@
 import express from "express";
 import path from "node:path";
 import { homeRouter } from "./routes/homeRouter.js";
+import { productsRouter } from "./routes/productsRouter.js";
 
 const currentDirectory = process.cwd();
 const app = express();
@@ -13,6 +14,7 @@ const assetsPath = path.join(currentDirectory, "public");
 app.use(express.static(assetsPath));
 
 app.use("/", homeRouter);
+app.use("/products", productsRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {
