@@ -3,6 +3,7 @@ import path from "node:path";
 import { homeRouter } from "./routes/homeRouter.js";
 import { productsRouter } from "./routes/productsRouter.js";
 import { categoryRouter } from "./routes/categoryRouter.js";
+import { brandsRouter } from "./routes/brandsRouter.js";
 
 const currentDirectory = process.cwd();
 const app = express();
@@ -17,6 +18,7 @@ app.use(express.static(assetsPath));
 app.use("/", homeRouter);
 app.use("/products", productsRouter);
 app.use("/category", categoryRouter);
+app.use("/brands", brandsRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {
