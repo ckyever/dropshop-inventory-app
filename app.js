@@ -4,6 +4,7 @@ import { homeRouter } from "./routes/homeRouter.js";
 import { productsRouter } from "./routes/productsRouter.js";
 import { categoryRouter } from "./routes/categoryRouter.js";
 import { brandsRouter } from "./routes/brandsRouter.js";
+import { storesRouter } from "./routes/storesRouter.js";
 
 const currentDirectory = process.cwd();
 const app = express();
@@ -19,6 +20,7 @@ app.use("/", homeRouter);
 app.use("/products", productsRouter);
 app.use("/category", categoryRouter);
 app.use("/brands", brandsRouter);
+app.use("/stores", storesRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {
