@@ -1,6 +1,6 @@
 <h2>Brands page</h2>
 <ul>
   <% brands.forEach((brand) => { %>
-  <li><%= brand.name %></li>
+  <li><a href=<%= `/products?brand=${brand.id}`%> ><%= brand.name %></a></li>
   <% }); %>
 </ul>

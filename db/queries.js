@@ -19,8 +19,7 @@ async function getProducts(categoryId, brandId, storeId) {
      LEFT JOIN category ON (category.id = product.category_id)
      LEFT JOIN brand ON (brand.id = product.brand_id)
      LEFT JOIN stock_levels ON (stock_levels.product_id = product.id)
-     WHERE ${condition}
-     `
+     WHERE ${condition}`
   );
   return rows;
 }

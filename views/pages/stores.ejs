@@ -1,6 +1,6 @@
 <h2>Stores page</h2>
 <ul>
   <% stores.forEach((store) => { %>
-  <li><%= store.name %></li>
+  <li><a href=<%= `/products?store=${store.id}`%> ><%= store.name %></a></li>
   <% }); %>
 </ul>
