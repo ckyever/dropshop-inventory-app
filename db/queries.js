@@ -1,7 +1,27 @@
 import { pool } from "./pool.js";
 
-async function getProducts() {
-  const { rows } = await pool.query("SELECT * FROM product");
+async function getProducts(categoryId, brandId, storeId) {
+  let condition = "1=1";
+
+  if (categoryId) {
+    condition += ` AND category.id = ${categoryId}`;
+  }
+  if (brandId) {
+    condition += ` AND brand.id = ${brandId}`;
+  }
+  if (storeId) {
+    condition += ` AND stock_levels.store_id = ${storeId}`;
+  }
+
+  const { rows } = await pool.query(
+    `SELECT product.* 
+     FROM product 
+     LEFT JOIN category ON (category.id = product.category_id)
+     LEFT JOIN brand ON (brand.id = product.brand_id)
+     LEFT JOIN stock_levels ON (stock_levels.product_id = product.id)
+     WHERE ${condition}
+     `
+  );
   return rows;
 }
 
