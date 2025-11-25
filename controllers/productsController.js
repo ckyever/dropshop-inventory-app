@@ -4,6 +4,7 @@ const getProductsPage = async (req, res) => {
   res.render("index", {
     content: "pages/products",
     products: await getProducts(),
+    categories: {},
   });
 };
 

@@ -1,1 +1,6 @@
-<p>Category page</p>
+<h2>Category page</h2>
+<ul>
+  <% categories.forEach((category) => { %>
+  <li><%= category.name %></li>
+  <% }); %>
+</ul>

@@ -5,4 +5,9 @@ async function getProducts() {
   return rows;
 }
 
-export { getProducts };
+async function getCategories() {
+  const { rows } = await pool.query("SELECT * FROM category");
+  return rows;
+}
+
+export { getProducts, getCategories };
