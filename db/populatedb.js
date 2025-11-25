@@ -106,6 +106,16 @@ INSERT INTO product (
   (SELECT id from category WHERE name = 'Shoes' LIMIT 1),
   (SELECT id from brand WHERE name = 'ASICS' LIMIT 1)
 );
+INSERT INTO store (name, address)
+VALUES ('Melbourne Store', '123 Flinders St, Melbourne, Australia');
+INSERT INTO store (name, address)
+VALUES ('Wimbledon Store', 'The All England Lawn Tennis Club, Wimbledon, England');
+INSERT INTO stock_levels (store_id, product_id, quantity)
+VALUES (
+  (SELECT id FROM store WHERE name = 'Melbourne Store'),
+  (SELECT id FROM product WHERE name = 'Yonex VCORE PRO 97 Racquet'),
+  5
+);
 `;
 
 async function main() {
