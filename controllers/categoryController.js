@@ -5,6 +5,8 @@ const getCategoryPage = async (req, res) => {
     content: "pages/category",
     products: {},
     categories: await getCategories(),
+    brands: {},
+    stores: {},
   });
 };
 

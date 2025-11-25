@@ -10,4 +10,14 @@ async function getCategories() {
   return rows;
 }
 
-export { getProducts, getCategories };
+async function getBrands() {
+  const { rows } = await pool.query("SELECT * FROM brand");
+  return rows;
+}
+
+async function getStores() {
+  const { rows } = await pool.query("SELECT * FROM store");
+  return rows;
+}
+
+export { getProducts, getCategories, getBrands, getStores };
