@@ -24,6 +24,20 @@ async function getProducts(categoryId, brandId, storeId) {
   return rows;
 }
 
+async function insertProduct({
+  name,
+  description,
+  image,
+  price,
+  categoryId,
+  brandId,
+}) {
+  await pool.query(
+    "INSERT INTO product (name, description, image, price, category_id, brand_id) VALUES ($1, $2, $3, $4, $5, $6)",
+    [name, description, image, price, categoryId, brandId]
+  );
+}
+
 async function getCategories() {
   const { rows } = await pool.query("SELECT * FROM category");
   return rows;
@@ -39,4 +53,4 @@ async function getStores() {
   return rows;
 }
 
-export { getProducts, getCategories, getBrands, getStores };
+export { getProducts, insertProduct, getCategories, getBrands, getStores };
