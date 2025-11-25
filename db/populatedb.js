@@ -116,6 +116,12 @@ VALUES (
   (SELECT id FROM product WHERE name = 'Yonex VCORE PRO 97 Racquet'),
   5
 );
+INSERT INTO stock_levels (store_id, product_id, quantity)
+VALUES (
+  (SELECT id FROM store WHERE name = 'Wimbledon Store'),
+  (SELECT id FROM product WHERE name = 'Wilson Tour Premier All Court Tennis 4-Ball Can'),
+  20
+);
 `;
 
 async function main() {
