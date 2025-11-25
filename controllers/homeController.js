@@ -1,11 +1,7 @@
+import { sendToPage } from "./utils.js";
+
 const getHomePage = (req, res) => {
-  res.render("index", {
-    content: "pages/home",
-    products: {},
-    categories: {},
-    brands: {},
-    stores: {},
-  });
+  sendToPage(res, "pages/home");
 };
 
 export { getHomePage };

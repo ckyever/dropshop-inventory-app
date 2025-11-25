@@ -1,13 +1,9 @@
 import { getBrands } from "../db/queries.js";
+import { sendToPage } from "./utils.js";
 
 const getBrandsPage = async (req, res) => {
-  res.render("index", {
-    content: "pages/brands",
-    products: {},
-    categories: {},
-    brands: await getBrands(),
-    stores: {},
-  });
+  const brands = await getBrands();
+  sendToPage(res, "pages/brands", { brands: brands });
 };
 
 export { getBrandsPage };
