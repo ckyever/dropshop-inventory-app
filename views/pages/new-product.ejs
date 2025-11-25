@@ -8,8 +8,16 @@
   <label for="price">Price: </label>
   <input type="text" id="price" name="price" />
   <label for="category">Category: </label>
-  <input type="text" id="category" name="category" />
+  <select id="category" name="category">
+    <% categories.forEach((category) => { %>
+    <option value="<%= category.id %>"><%=category.name%></option>
+    <% }) %>
+  </select>
   <label for="brand">Brand: </label>
-  <input type="text" id="brand" name="brand" />
+  <select id="brand" name="brand">
+    <% brands.forEach((brand) => { %>
+    <option value="<%= brand.id %>"><%=brand.name%></option>
+    <% }) %>
+  </select>
   <button type="submit">Add</button>
 </form>

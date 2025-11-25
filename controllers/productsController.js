@@ -1,4 +1,9 @@
-import { getProducts, insertProduct } from "../db/queries.js";
+import {
+  getProducts,
+  insertProduct,
+  getCategories,
+  getBrands,
+} from "../db/queries.js";
 import { sendToPage } from "./utils.js";
 
 const getProductsPage = async (req, res) => {
@@ -10,8 +15,10 @@ const getProductsPage = async (req, res) => {
   sendToPage(res, "pages/products", { products: products });
 };
 
-const getNewProductPage = (req, res) => {
-  sendToPage(res, "pages/new-product");
+const getNewProductPage = async (req, res) => {
+  const categories = await getCategories();
+  const brands = await getBrands();
+  sendToPage(res, "pages/new-product", { categories, brands });
 };
 
 const addNewProduct = async (req, res) => {

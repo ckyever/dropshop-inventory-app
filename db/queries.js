@@ -29,12 +29,12 @@ async function insertProduct({
   description,
   image,
   price,
-  categoryId,
-  brandId,
+  category,
+  brand,
 }) {
   await pool.query(
     "INSERT INTO product (name, description, image, price, category_id, brand_id) VALUES ($1, $2, $3, $4, $5, $6)",
-    [name, description, image, price, categoryId, brandId]
+    [name, description, image, price, category, brand]
   );
 }
 
