@@ -1,6 +1,7 @@
 import {
   getProducts,
   insertProduct,
+  deleteProductById,
   getCategories,
   getBrands,
 } from "../db/queries.js";
@@ -28,4 +29,14 @@ const addNewProduct = async (req, res) => {
   res.redirect("/products");
 };
 
-export { getProductsPage, getNewProductPage, addNewProduct };
+const deleteProduct = async (req, res) => {
+  await deleteProductById(req.query.id);
+  const previousPath = req.headers.referer;
+  if (previousPath) {
+    res.redirect(previousPath);
+  } else {
+    res.redirect("/products");
+  }
+};
+
+export { getProductsPage, getNewProductPage, addNewProduct, deleteProduct };
