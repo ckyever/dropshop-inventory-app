@@ -1,6 +1,4 @@
 <h2>Category page</h2>
 <ul>
-  <% categories.forEach((category) => { %>
-  <li><a href=<%= `/products?category=${category.id}`%> ><%= category.name %></a></li>
-  <% }); %>
+  <%- include("../partials/categoryLinks.ejs", {categories}) %>
 </ul>
