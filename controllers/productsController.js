@@ -10,7 +10,8 @@ const getProductsPage = async (req, res) => {
   const products = await getProducts(
     req.query.category,
     req.query.brand,
-    req.query.store
+    req.query.store,
+    req.query.search
   );
   sendToPage(res, "pages/products", { products: products });
 };

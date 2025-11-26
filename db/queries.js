@@ -1,26 +1,35 @@
 import { pool } from "./pool.js";
 
-async function getProducts(categoryId, brandId, storeId) {
-  let condition = "1=1";
+async function getProducts(categoryId, brandId, storeId, searchQuery) {
+  const queryValues = [];
+
+  let sql = `
+    SELECT product.* 
+    FROM product 
+    LEFT JOIN category ON (category.id = product.category_id)
+    LEFT JOIN brand ON (brand.id = product.brand_id)
+    LEFT JOIN stock_levels ON (stock_levels.product_id = product.id)
+    WHERE 1 = 1
+  `;
 
   if (categoryId) {
-    condition += ` AND category.id = ${categoryId}`;
+    sql += ` AND category.id = ${categoryId}`;
   }
   if (brandId) {
-    condition += ` AND brand.id = ${brandId}`;
+    sql += ` AND brand.id = ${brandId}`;
   }
   if (storeId) {
-    condition += ` AND stock_levels.store_id = ${storeId}`;
+    sql += ` AND stock_levels.store_id = ${storeId}`;
   }
 
-  const { rows } = await pool.query(
-    `SELECT product.* 
-     FROM product 
-     LEFT JOIN category ON (category.id = product.category_id)
-     LEFT JOIN brand ON (brand.id = product.brand_id)
-     LEFT JOIN stock_levels ON (stock_levels.product_id = product.id)
-     WHERE ${condition}`
-  );
+  if (searchQuery) {
+    sql +=
+      "AND (product.name ILIKE $1 OR category.name ILIKE $2 OR brand.name ILIKE $3)";
+    const regex = `%${searchQuery}%`;
+    queryValues.push(regex, regex, regex);
+  }
+
+  const { rows } = await pool.query(sql, queryValues);
   return rows;
 }
 
