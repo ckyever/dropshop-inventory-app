@@ -110,11 +110,18 @@ INSERT INTO store (name, address)
 VALUES ('Melbourne Store', '123 Flinders St, Melbourne, Australia');
 INSERT INTO store (name, address)
 VALUES ('Wimbledon Store', 'The All England Lawn Tennis Club, Wimbledon, England');
+
 INSERT INTO stock_levels (store_id, product_id, quantity)
 VALUES (
   (SELECT id FROM store WHERE name = 'Melbourne Store'),
   (SELECT id FROM product WHERE name = 'Yonex VCORE PRO 97 Racquet'),
   5
+);
+INSERT INTO stock_levels (store_id, product_id, quantity)
+VALUES (
+  (SELECT id FROM store WHERE name = 'Melbourne Store'),
+  (SELECT id FROM product WHERE name = 'Wilson Tour Premier All Court Tennis 4-Ball Can'),
+  100
 );
 INSERT INTO stock_levels (store_id, product_id, quantity)
 VALUES (
