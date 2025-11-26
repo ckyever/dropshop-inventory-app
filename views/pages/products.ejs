@@ -3,7 +3,8 @@
 <ul>
   <% products.forEach((product) => { %>
   <li>
-    <%= product.name %>
+    <div class="name"><%= product.name %></div>
+    <div class="price">$<%= product.price %></div>
     <a href="/products/delete?id=<%= product.id %>">Delete</a>
   </li>
   <% }); %>
