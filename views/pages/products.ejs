@@ -1,5 +1,17 @@
+<% 
+  let newProductLink = "/products/new?";
+
+  if (defaultCategory) {
+    newProductLink += `&category=${defaultCategory}`;
+  }
+
+  if (defaultBrand) {
+    newProductLink += `&brand=${defaultBrand}`;
+  }
+%>
+
 <h2>Products page</h2>
-<a href="/products/new">Add a new product</a>
+<a href="<%= newProductLink %>">Add a new product</a>
 <% if (products.length === 0) { %>
   <p>No products available</p>
 <% } else { %>

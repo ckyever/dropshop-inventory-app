@@ -14,13 +14,16 @@ const getProductsPage = async (req, res) => {
     req.query.store,
     req.query.search
   );
-  sendToPage(res, "pages/products", { products: products });
+
+  sendToPage(res, "pages/products", { products: products, defaultCategory: req.query.category, defaultBrand: req.query.brand });
 };
 
 const getNewProductPage = async (req, res) => {
   const categories = await getCategories();
+  const defaultCategory = req.query.category
   const brands = await getBrands();
-  sendToPage(res, "pages/new-product", { categories, brands }, {redirect: req.headers.referer});
+  const defaultBrand = req.query.brand
+  sendToPage(res, "pages/new-product", { categories, brands, defaultCategory, defaultBrand }, {redirect: req.headers.referer});
 };
 
 const addNewProduct = async (req, res) => {

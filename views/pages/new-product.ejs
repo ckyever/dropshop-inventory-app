@@ -19,13 +19,13 @@
   <label for="category">Category: </label>
   <select id="category" name="category">
     <% categories.forEach((category) => { %>
-    <option value="<%= category.id %>"><%=category.name%></option>
+    <option value="<%= category.id %>" <%- category.id == defaultCategory ? 'selected' : '' %>><%=category.name%></option>
     <% }) %>
   </select>
   <label for="brand">Brand: </label>
   <select id="brand" name="brand">
     <% brands.forEach((brand) => { %>
-    <option value="<%= brand.id %>"><%=brand.name%></option>
+    <option value="<%= brand.id %>" <%- brand.id == defaultBrand ? 'selected' : '' %>><%=brand.name%></option>
     <% }) %>
   </select>
   <input type="hidden" name="redirect" value="<%= redirect %>">

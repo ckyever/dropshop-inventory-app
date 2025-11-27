@@ -111,13 +111,13 @@ VALUES (
 INSERT INTO stock_levels (store_id, product_id, quantity)
 VALUES (
   (SELECT id FROM store WHERE name = 'Melbourne Store'),
-  (SELECT id FROM product WHERE name = 'Wilson Tour Premier All Court Tennis 4-Ball Can'),
+  (SELECT id FROM product WHERE name = 'Wilson US Open Regular Duty Single Can'),
   100
 );
 INSERT INTO stock_levels (store_id, product_id, quantity)
 VALUES (
   (SELECT id FROM store WHERE name = 'Wimbledon Store'),
-  (SELECT id FROM product WHERE name = 'Wilson Tour Premier All Court Tennis 4-Ball Can'),
+  (SELECT id FROM product WHERE name = 'Wilson US Open Regular Duty Single Can'),
   20
 );
 `;
