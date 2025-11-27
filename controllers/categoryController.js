@@ -3,7 +3,7 @@ import { sendToPage } from "./utils.js";
 
 const getCategoryPage = async (req, res) => {
   const categories = await getCategories();
-  sendToPage(res, "pages/category", { categories: categories}, true);
+  sendToPage(res, "pages/category", { categories: categories}, {showDeleteButton: true});
 };
 
 const getNewCategoryPage = async (req, res) => {

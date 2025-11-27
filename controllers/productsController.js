@@ -20,13 +20,13 @@ const getProductsPage = async (req, res) => {
 const getNewProductPage = async (req, res) => {
   const categories = await getCategories();
   const brands = await getBrands();
-  sendToPage(res, "pages/new-product", { categories, brands });
+  sendToPage(res, "pages/new-product", { categories, brands }, {redirect: req.headers.referer});
 };
 
 const addNewProduct = async (req, res) => {
   const formData = req.body;
   await insertProduct(formData);
-  res.redirect("/products");
+  res.redirect(formData.redirect ?? "/products");
 };
 
 const deleteProduct = async (req, res) => {
