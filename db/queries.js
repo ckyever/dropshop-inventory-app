@@ -32,6 +32,11 @@ async function getProducts(categoryId, brandId, storeId, searchQuery) {
   return rows;
 }
 
+async function getProductById(id) {
+  const {rows} = await pool.query("SELECT * FROM product WHERE id = $1", [id]);
+  return rows[0];
+}
+
 async function insertProduct({
   name,
   image,
@@ -74,6 +79,7 @@ async function getStores() {
 
 export {
   getProducts,
+  getProductById,
   insertProduct,
   deleteProductById,
   getCategories,

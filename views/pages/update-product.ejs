@@ -1,0 +1,38 @@
+<form class="create-form" action="/products/<%= product.id %>/update" method="POST">
+  <label for="name">Name: </label>
+  <input
+    type="text"
+    id="name"
+    name="name"
+    placeholder="Wilson Pro Staff Racquet"
+    required
+    value="<%= product.name %>"
+  />
+  <label for="image">Image URL: </label>
+  <input
+    type="text"
+    id="image"
+    name="image"
+    placeholder="https://example.com/image01"
+    value="<%= product.image %>"
+  />
+  <label for="price">Price: </label>
+  <input type="text" id="price" name="price" placeholder="299.95" required
+    value="<%= product.price %>"
+  />
+  <label for="category">Category: </label>
+  <select id="category" name="category">
+    <% categories.forEach((category) => { %>
+    <option value="<%= category.id %>" <%- category.id == product.category ? 'selected' : '' %>><%=category.name%></option>
+    <% }) %>
+  </select>
+  <label for="brand">Brand: </label>
+  <select id="brand" name="brand">
+    <% brands.forEach((brand) => { %>
+    <option value="<%= brand.id %>" <%- brand.id == product.brand ? 'selected' : '' %>><%=brand.name%></option>
+    <% }) %>
+  </select>
+  <input type="hidden" name="redirect" value="<%= redirect %>">
+  <button type="submit">Save</button>
+  <a href="<%= redirect %>">Cancel</a>
+</form>
