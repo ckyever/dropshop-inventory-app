@@ -5,3 +5,19 @@
   align-items: flex-start;
   gap: 4px;
 }
+
+.product-list{
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.product-listing .product-image {
+  width: 100px;
+  height: 175px;
+  object-fit: contain;
+}
