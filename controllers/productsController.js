@@ -15,7 +15,7 @@ const getProductsPage = async (req, res) => {
     req.query.search
   );
 
-  sendToPage(res, "pages/products", { products: products, defaultCategory: req.query.category, defaultBrand: req.query.brand });
+  sendToPage(res, "pages/products", { products: products, defaultCategory: req.query.category, defaultBrand: req.query.brand }, {title: req.query.title});
 };
 
 const getNewProductPage = async (req, res) => {

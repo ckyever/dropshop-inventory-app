@@ -2,7 +2,7 @@ const sendToPage = (
   response,
   pageView,
   { products, categories, brands, stores, defaultCategory, defaultBrand } = {},
-  { redirect, showDeleteButton } = {},
+  { title, redirect, showDeleteButton } = {},
 ) => {
   response.render("index", {
     content: pageView,
@@ -14,6 +14,7 @@ const sendToPage = (
     stores: stores ?? {},
     showDeleteButton: showDeleteButton ?? false,
     redirect: redirect ?? null, 
+    title: title ?? null,
   });
 };
 

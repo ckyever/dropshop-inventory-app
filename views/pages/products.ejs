@@ -10,7 +10,7 @@
   }
 %>
 
-<h2>Products page</h2>
+<h2><%= title ?? "All Products" %></h2>
 <a href="<%= newProductLink %>">Add a new product</a>
 <% if (products.length === 0) { %>
   <p>No products available</p>

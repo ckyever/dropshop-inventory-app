@@ -1,6 +1,10 @@
 <h2>Stores page</h2>
 <ul>
   <% stores.forEach((store) => { %>
-  <li><a href=<%= `/products?store=${store.id}`%> ><%= store.name %></a></li>
+  <% 
+    const productPageUrl = encodeURI(`/products?store=${store.id}&title=${store.name}`);
+  %>
+
+  <li><a href=<%= productPageUrl %> ><%= store.name %></a></li>
   <% }); %>
 </ul>
