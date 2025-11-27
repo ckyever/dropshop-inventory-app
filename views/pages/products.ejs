@@ -3,6 +3,7 @@
 <ul>
   <% products.forEach((product) => { %>
   <li>
+    <img class="product-image" src="<%= product.image %>" alt="<%= product.name %>"/>
     <div class="name"><%= product.name %></div>
     <div class="price">$<%= product.price %></div>
     <a href="/products/delete?id=<%= product.id %>">Delete</a>

@@ -53,7 +53,7 @@ INSERT INTO product (
   brand_id
 ) VALUES (
   'Yonex VCORE 95',
-  NULL,
+  'https://img.tennis-warehouse.com/watermark/rs.php?path=YVC95-1.jpg&nw=540',
   349.95,
   (SELECT id from category WHERE name = 'Racquets' LIMIT 1),
   (SELECT id from brand WHERE name = 'Yonex' LIMIT 1)
@@ -65,8 +65,8 @@ INSERT INTO product (
   category_id,
   brand_id
 ) VALUES (
-  'Wilson Tour Premier All Court Tennis 4-Ball Can',
-  NULL,
+  'Wilson US Open Regular Duty Single Can',
+  'https://img.tennis-warehouse.com/watermark/rs.php?path=USORDS-1.jpg&nw=540',
   13.95,
   (SELECT id from category WHERE name = 'Tennis Balls' LIMIT 1),
   (SELECT id from brand WHERE name = 'Wilson' LIMIT 1)
@@ -78,8 +78,8 @@ INSERT INTO product (
   category_id,
   brand_id
 ) VALUES (
-  'Luxilon Big Banger ALU Power Rough',
-  NULL,
+  'Luxilon Big Banger Original 16/1.30 String',
+  'https://img.tennis-warehouse.com/watermark/rs.php?path=BB16-NA-1.jpg&nw=540',
   34.95,
   (SELECT id from category WHERE name = 'Strings' LIMIT 1),
   (SELECT id from brand WHERE name = 'Luxilon' LIMIT 1)
@@ -91,8 +91,8 @@ INSERT INTO product (
   category_id,
   brand_id
 ) VALUES (
-  'ASICS Gel-Resolution X',
-  NULL,
+  'Asics Gel Resolution X White/Black Men''s Shoes',
+  'https://img.tennis-warehouse.com/watermark/rs.php?path=AGRXWHB-1.jpg&nw=540',
   230.00,
   (SELECT id from category WHERE name = 'Shoes' LIMIT 1),
   (SELECT id from brand WHERE name = 'ASICS' LIMIT 1)
