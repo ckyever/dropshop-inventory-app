@@ -4,7 +4,7 @@ async function getProducts(categoryId, brandId, storeId, searchQuery) {
   const queryValues = [];
 
   let sql = `
-    SELECT product.* 
+    SELECT product.*, (SELECT SUM(quantity) FROM stock_levels WHERE product_id = product.id ${storeId ? `AND store_id = ${storeId}` : ''}) AS total_stock 
     FROM product 
     LEFT JOIN category ON (category.id = product.category_id)
     LEFT JOIN brand ON (brand.id = product.brand_id)
