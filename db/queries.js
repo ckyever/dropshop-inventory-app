@@ -55,6 +55,10 @@ async function getCategories() {
   return rows;
 }
 
+async function insertCategory({name}) {
+  await pool.query("INSERT INTO category (name) VALUES ($1)", [name]);
+}
+
 async function getBrands() {
   const { rows } = await pool.query("SELECT * FROM brand");
   return rows;
@@ -70,6 +74,7 @@ export {
   insertProduct,
   deleteProductById,
   getCategories,
+  insertCategory,
   getBrands,
   getStores,
 };
