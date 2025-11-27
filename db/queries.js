@@ -55,6 +55,10 @@ async function getCategories() {
   return rows;
 }
 
+async function deleteCategoryById(id) {
+  await pool.query("DELETE FROM category WHERE id = $1", [id]);
+}
+
 async function insertCategory({name}) {
   await pool.query("INSERT INTO category (name) VALUES ($1)", [name]);
 }
@@ -74,6 +78,7 @@ export {
   insertProduct,
   deleteProductById,
   getCategories,
+  deleteCategoryById,
   insertCategory,
   getBrands,
   getStores,

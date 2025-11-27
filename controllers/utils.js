@@ -1,7 +1,8 @@
 const sendToPage = (
   response,
   pageView,
-  { products, categories, brands, stores } = {}
+  { products, categories, brands, stores } = {},
+  showDeleteButton = false
 ) => {
   response.render("index", {
     content: pageView,
@@ -9,6 +10,7 @@ const sendToPage = (
     categories: categories ?? {},
     brands: brands ?? {},
     stores: stores ?? {},
+    showDeleteButton,
   });
 };
 

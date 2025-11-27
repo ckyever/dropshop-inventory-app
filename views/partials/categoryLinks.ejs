@@ -1,3 +1,8 @@
 <% categories.forEach((category) => { %>
-<li><a href=<%= `/products?category=${category.id}`%> ><%= category.name %></a></li>
+<li>
+  <a href=<%= `/products?category=${category.id}`%> ><%= category.name %></a>
+  <% if (showDeleteButton) { %>
+    <a href=<%= `/category/delete?id=${category.id}`%> >Delete<a>
+  <% } %>
+</li>
 <% }); %>

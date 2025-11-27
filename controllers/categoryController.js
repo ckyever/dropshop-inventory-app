@@ -1,9 +1,9 @@
-import { getCategories, insertCategory } from "../db/queries.js";
+import { getCategories, insertCategory, deleteCategoryById } from "../db/queries.js";
 import { sendToPage } from "./utils.js";
 
 const getCategoryPage = async (req, res) => {
   const categories = await getCategories();
-  sendToPage(res, "pages/category", { categories: categories });
+  sendToPage(res, "pages/category", { categories: categories}, true);
 };
 
 const getNewCategoryPage = async (req, res) => {
@@ -16,4 +16,15 @@ const addNewCategory = async (req, res) => {
   res.redirect("/category");
 };
 
-export { getCategoryPage, getNewCategoryPage, addNewCategory };
+const deleteCategory = async (req, res) => {
+  await deleteCategoryById(req.query.id);
+  const previousPath = req.headers.referer;
+  if (previousPath) {
+    res.redirect(previousPath);
+  } else {
+    res.redirect("/category");
+  }
+};
+
+
+export { getCategoryPage, getNewCategoryPage, addNewCategory, deleteCategory };
