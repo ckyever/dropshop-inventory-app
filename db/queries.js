@@ -8,7 +8,6 @@ async function getProducts(categoryId, brandId, storeId, searchQuery) {
     FROM product 
     LEFT JOIN category ON (category.id = product.category_id)
     LEFT JOIN brand ON (brand.id = product.brand_id)
-    LEFT JOIN stock_levels ON (stock_levels.product_id = product.id)
     WHERE 1 = 1
   `;
 
@@ -19,7 +18,7 @@ async function getProducts(categoryId, brandId, storeId, searchQuery) {
     sql += ` AND brand.id = ${brandId}`;
   }
   if (storeId) {
-    sql += ` AND stock_levels.store_id = ${storeId}`;
+    sql += ` AND product.id IN (SELECT product_id FROM stock_levels WHERE store_id = ${storeId})`;
   }
 
   if (searchQuery) {
