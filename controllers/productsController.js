@@ -46,9 +46,7 @@ const deleteProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
   const categories = await getCategories();
   const brands = await getBrands();
-  await console.log(req.params.id)
   const product = await getProductById(req.params.id);
-  await console.log(product)
   sendToPage(res, "pages/update-product", { product, categories, brands }, {redirect: req.headers.referer});
 };
 
