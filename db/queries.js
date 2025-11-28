@@ -28,6 +28,8 @@ async function getProducts(categoryId, brandId, storeId, searchQuery) {
     queryValues.push(regex, regex, regex);
   }
 
+  sql += " ORDER BY product.id ASC"
+
   const { rows } = await pool.query(sql, queryValues);
   return rows;
 }
