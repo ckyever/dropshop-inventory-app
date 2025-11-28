@@ -64,7 +64,7 @@ async function updateProductById(id, {name, image, price, categoryId, brandId}) 
 }
 
 async function getCategories() {
-  const { rows } = await pool.query("SELECT * FROM category");
+  const { rows } = await pool.query("SELECT * FROM category ORDER BY id");
   return rows;
 }
 
@@ -86,12 +86,12 @@ async function updateCategoryById(id, {name}) {
 }
 
 async function getBrands() {
-  const { rows } = await pool.query("SELECT * FROM brand");
+  const { rows } = await pool.query("SELECT * FROM brand ORDER BY id");
   return rows;
 }
 
 async function getStores() {
-  const { rows } = await pool.query("SELECT * FROM store");
+  const { rows } = await pool.query("SELECT * FROM store ORDER BY id");
   return rows;
 }
 
