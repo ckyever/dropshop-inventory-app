@@ -4,11 +4,14 @@
   const productPageUrl = encodeURI(`/products?category=${category.id}&title=${category.name}`);
 %>
 
-<li>
+<li class="category-listing">
+  <img class="category-image" src="<%= category.image %>" alt="<%= category.name %>"/>
   <a href=<%= productPageUrl %> ><%= category.name %></a>
   <% if (showModifyLinks) { %>
-    <a href=<%= `/category/${category.id}/update` %> >Update<a>
-    <a href=<%= `/category/delete?id=${category.id}`%> >Delete<a>
+  <div class="modify-buttons">
+    <a href=<%= `/category/${category.id}/update` %> >Update</a>
+    <a href=<%= `/category/delete?id=${category.id}`%> >Delete</a>
+  </div>
   <% } %>
 </li>
 <% }); %>

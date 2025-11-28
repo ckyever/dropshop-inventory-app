@@ -64,7 +64,15 @@ async function updateProductById(id, {name, image, price, categoryId, brandId}) 
 }
 
 async function getCategories() {
-  const { rows } = await pool.query("SELECT * FROM category ORDER BY id");
+  const { rows } = await pool.query(`
+    SELECT
+      category.*,
+      (SELECT product.image FROM product WHERE product.category_id = category.id ORDER BY id LIMIT 1)
+    FROM
+      category
+    ORDER BY
+      id
+  `);
   return rows;
 }
 
