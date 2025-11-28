@@ -6,6 +6,8 @@ import {
   updateProductById,
   getCategories,
   getBrands,
+  getStores,
+  insertStockLevel,
 } from "../db/queries.js";
 import { sendToPage } from "./utils.js";
 
@@ -25,12 +27,24 @@ const getNewProductPage = async (req, res) => {
   const defaultCategory = req.query.category
   const brands = await getBrands();
   const defaultBrand = req.query.brand
-  sendToPage(res, "pages/new-product", { categories, brands, defaultCategory, defaultBrand }, {redirect: req.headers.referer});
+  const stores = await getStores();
+  sendToPage(res, "pages/new-product", { categories, brands, stores, defaultCategory, defaultBrand }, {redirect: req.headers.referer});
+};
+
+const createStockLevelData = (productId, formData) => {
+  const regex = /^(store-id-)(.*)$/;
+  for (const[key, value] of Object.entries(formData)) {
+    const match = key.match(regex);
+    if (match) {
+      insertStockLevel(match[2], productId, value)
+    }
+  }
 };
 
 const addNewProduct = async (req, res) => {
   const formData = req.body;
-  await insertProduct(formData);
+  const productId = await insertProduct(formData);
+  createStockLevelData(productId, formData)
   res.redirect(formData.redirect ?? "/products");
 };
 

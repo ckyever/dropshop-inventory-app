@@ -6,6 +6,12 @@
   gap: 4px;
 }
 
+.stock-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .item-list{
   padding: 0;
   list-style: none;

@@ -1,0 +1,8 @@
+<fieldset class="stock-levels">
+  <legend>Stock Levels</legend>
+  <% stores.forEach((store) => { %>
+    <% const inputId = `product${product.id}store${store.id}` %>
+    <label for="<%= inputId %>"><%= store.name %>: </label>
+    <input type="number" id="<%= inputId %>" name="store-id-<%= store.id %>" value=0 />
+  <% }) %>
+</fieldset>

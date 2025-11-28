@@ -15,7 +15,7 @@
     placeholder="https://example.com/image01"
   />
   <label for="price">Price: </label>
-  <input type="text" id="price" name="price" placeholder="299.95" required/>
+  <input type="number" id="price" name="price" placeholder="299.95" required/>
   <label for="category">Category: </label>
   <select id="category" name="category">
     <option value="">-- Choose a category --</option> 
@@ -30,6 +30,7 @@
     <option value="<%= brand.id %>" <%- brand.id == defaultBrand ? 'selected' : '' %>><%=brand.name%></option>
     <% }) %>
   </select>
+  <%- include("../partials/stockLevels") %>
   <input type="hidden" name="redirect" value="<%= redirect %>">
   <button type="submit">Add</button>
 </form>

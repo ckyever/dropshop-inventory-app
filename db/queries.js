@@ -49,10 +49,11 @@ async function insertProduct({
   // If IDs are empty strings insert them as null otherwise convert to Number
   categoryId = categoryId ? Number(categoryId) : null
   brandId = brandId ? Number(brandId) : null
-  await pool.query(
-    "INSERT INTO product (name, image, price, category_id, brand_id) VALUES ($1, $2, $3, $4, $5)",
+  const { rows } = await pool.query(
+    "INSERT INTO product (name, image, price, category_id, brand_id) VALUES ($1, $2, $3, $4, $5) RETURNING id",
     [name, image, price, categoryId, brandId]
   );
+  return rows[0].id;
 }
 
 async function deleteProductById(id) {
@@ -103,6 +104,10 @@ async function getStores() {
   return rows;
 }
 
+async function insertStockLevel(storeId, productId, quantity) {
+  await pool.query("INSERT INTO stock_levels (store_id, product_id, quantity) VALUES ($1, $2, $3)", [Number(storeId), Number(productId), Number(quantity)]);
+}
+
 export {
   getProducts,
   getProductById,
@@ -116,4 +121,5 @@ export {
   updateCategoryById,
   getBrands,
   getStores,
+  insertStockLevel,
 };
