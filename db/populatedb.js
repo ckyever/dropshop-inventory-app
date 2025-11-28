@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS category (
 
 CREATE TABLE IF NOT EXISTS brand (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  name VARCHAR(255)
+  name VARCHAR(255),
+  image VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS product (
@@ -40,10 +41,10 @@ INSERT INTO category (name) VALUES ('Tennis Balls');
 INSERT INTO category (name) VALUES ('Strings');
 INSERT INTO category (name) VALUES ('Shoes');
 
-INSERT INTO brand (name) VALUES ('Wilson');
-INSERT INTO brand (name) VALUES ('Yonex');
-INSERT INTO brand (name) VALUES ('Luxilon');
-INSERT INTO brand (name) VALUES ('ASICS');
+INSERT INTO brand (name, image) VALUES ('Wilson', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Wilson-logo.svg/2560px-Wilson-logo.svg.png');
+INSERT INTO brand (name, image) VALUES ('Yonex', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo-Yonex.svg/960px-Logo-Yonex.svg.png');
+INSERT INTO brand (name, image) VALUES ('Luxilon', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXspTjFPGy6ZoCJIpCeVbTHeamqFspTiXCTQ&s');
+INSERT INTO brand (name, image) VALUES ('ASICS', 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Asics_Logo.svg/2560px-Asics_Logo.svg.png');
 
 INSERT INTO product (
   name,

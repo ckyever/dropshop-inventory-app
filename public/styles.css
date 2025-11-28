@@ -6,7 +6,7 @@
   gap: 4px;
 }
 
-.product-list{
+.item-list{
   padding: 0;
   list-style: none;
   display: grid;
@@ -16,29 +16,18 @@
   gap: 8px;
 }
 
-.product-listing .product-image {
+.item-image {
   width: 100px;
   height: 175px;
   object-fit: contain;
 }
 
-.category-list{
-  padding: 0;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  place-items: center;
-  text-align: center;
-  gap: 8px;
+.brand-image {
+  width: 175px;
+  object-fit: contain;
 }
 
 .category-listing {
   display: flex;
   flex-direction: column;
-}
-
-.category-listing .category-image {
-  width: 100px;
-  height: 175px;
-  object-fit: contain;
 }

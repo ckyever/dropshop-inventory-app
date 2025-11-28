@@ -15,10 +15,10 @@
 <% if (products.length === 0) { %>
   <p>No products available</p>
 <% } else { %>
-  <ul class="product-list">
+  <ul class="item-list">
     <% products.forEach((product) => { %>
-    <li class="product-listing">
-      <img class="product-image" src="<%= product.image %>" alt="<%= product.name %>"/>
+    <li>
+      <img class="item-image" src="<%= product.image %>" alt="<%= product.name %>"/>
       <div class="name"><%= product.name %></div>
       <div class="price">$<%= product.price %></div>
       <div>Total Stock: <%= product.total_stock ?? 0 %></div>
