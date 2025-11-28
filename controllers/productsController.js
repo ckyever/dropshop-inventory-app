@@ -3,6 +3,7 @@ import {
   getProductById,
   insertProduct,
   deleteProductById,
+  updateProductById,
   getCategories,
   getBrands,
 } from "../db/queries.js";
@@ -43,11 +44,17 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-const updateProduct = async (req, res) => {
+const getUpdateProductPage = async (req, res) => {
   const categories = await getCategories();
   const brands = await getBrands();
   const product = await getProductById(req.params.id);
   sendToPage(res, "pages/update-product", { product, categories, brands }, {redirect: req.headers.referer});
 };
 
-export { getProductsPage, getNewProductPage, addNewProduct, deleteProduct, updateProduct };
+const updateProduct = async (req, res) => {
+  const formData = req.body;
+  await updateProductById(formData.id, {name: formData.name, image: formData.image,price: formData.price, categoryId: formData.category, brandId: formData.brand});
+  res.redirect(formData.redirect ?? "/products");
+}
+
+export { getProductsPage, getNewProductPage, addNewProduct, deleteProduct, getUpdateProductPage, updateProduct };

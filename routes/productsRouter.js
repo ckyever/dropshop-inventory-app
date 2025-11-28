@@ -4,6 +4,7 @@ import {
   getNewProductPage,
   addNewProduct,
   deleteProduct,
+  getUpdateProductPage,
   updateProduct
 } from "../controllers/productsController.js";
 
@@ -13,6 +14,7 @@ productsRouter.get("/new", getNewProductPage);
 productsRouter.post("/new", addNewProduct);
 productsRouter.get("/delete", deleteProduct);
 productsRouter.get("/delete", deleteProduct);
-productsRouter.get("/:id/update", updateProduct);
+productsRouter.get("/:id/update", getUpdateProductPage);
+productsRouter.post("/:id/update", updateProduct);
 
 export { productsRouter };

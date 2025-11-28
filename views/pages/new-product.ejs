@@ -18,12 +18,14 @@
   <input type="text" id="price" name="price" placeholder="299.95" required/>
   <label for="category">Category: </label>
   <select id="category" name="category">
+    <option value="">-- Choose a category --</option> 
     <% categories.forEach((category) => { %>
     <option value="<%= category.id %>" <%- category.id == defaultCategory ? 'selected' : '' %>><%=category.name%></option>
     <% }) %>
   </select>
   <label for="brand">Brand: </label>
   <select id="brand" name="brand">
+    <option value="">-- Choose a brand --</option> 
     <% brands.forEach((brand) => { %>
     <option value="<%= brand.id %>" <%- brand.id == defaultBrand ? 'selected' : '' %>><%=brand.name%></option>
     <% }) %>

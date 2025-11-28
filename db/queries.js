@@ -41,17 +41,24 @@ async function insertProduct({
   name,
   image,
   price,
-  category,
-  brand,
+  categoryId,
+  brandId,
 }) {
+  // If IDs are empty strings insert them as null otherwise convert to Number
+  categoryId = categoryId ? Number(categoryId) : null
+  brandId = brandId ? Number(brandId) : null
   await pool.query(
     "INSERT INTO product (name, image, price, category_id, brand_id) VALUES ($1, $2, $3, $4, $5)",
-    [name, image, price, category, brand]
+    [name, image, price, categoryId, brandId]
   );
 }
 
 async function deleteProductById(id) {
   await pool.query("DELETE FROM product WHERE id = $1", [id]);
+}
+
+async function updateProductById(id, {name, image, price, categoryId, brandId}) {
+  await pool.query("UPDATE product SET name = $1, image = $2, price = $3, category_id = $4, brand_id = $5 WHERE id = $6", [name, image, price, Number(categoryId), Number(brandId), id]);
 }
 
 async function getCategories() {
@@ -82,6 +89,7 @@ export {
   getProductById,
   insertProduct,
   deleteProductById,
+  updateProductById,
   getCategories,
   deleteCategoryById,
   insertCategory,
