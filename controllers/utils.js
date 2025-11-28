@@ -2,7 +2,7 @@ const sendToPage = (
   response,
   pageView,
   { products, product, categories, category, brands, stores, defaultCategory, defaultBrand } = {},
-  { title, redirect, showModifyLinks, previousQuery } = {},
+  { title, redirect, showModifyLinks, previousQuery, isStoreView } = {},
 ) => {
   response.render("index", {
     content: pageView,
@@ -18,6 +18,7 @@ const sendToPage = (
     redirect: redirect ?? null, 
     title: title ?? null,
     previousQuery: previousQuery ?? null,
+    isStoreView: isStoreView ?? false
   });
 };
 

@@ -21,7 +21,7 @@
       <img class="item-image" src="<%= product.image %>" alt="<%= product.name %>"/>
       <div class="name"><%= product.name %></div>
       <div class="price">$<%= product.price %></div>
-      <div>Total Stock: <%= product.total_stock ?? 0 %></div>
+      <div><%= isStoreView ? "Store" : "Total" %> Stock: <%= product.total_stock ?? 0 %></div>
       <a href="/products/<%= product.id %>/update">Update</a>
       <a href="/products/delete?id=<%= product.id %>">Delete</a>
     </li>
