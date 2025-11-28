@@ -6,7 +6,7 @@
 
 <li>
   <a href=<%= productPageUrl %> ><%= category.name %></a>
-  <% if (showDeleteButton) { %>
+  <% if (showModifyLinks) { %>
     <a href=<%= `/category/delete?id=${category.id}`%> >Delete<a>
   <% } %>
 </li>
