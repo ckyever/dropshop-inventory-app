@@ -68,12 +68,21 @@ async function getCategories() {
   return rows;
 }
 
+async function getCategoryById(id) {
+  const {rows} = await pool.query("SELECT * FROM category WHERE id = $1", [id]);
+  return rows[0];
+}
+
 async function deleteCategoryById(id) {
   await pool.query("DELETE FROM category WHERE id = $1", [id]);
 }
 
 async function insertCategory({name}) {
   await pool.query("INSERT INTO category (name) VALUES ($1)", [name]);
+}
+
+async function updateCategoryById(id, {name}) {
+  await pool.query("UPDATE category SET name = $1 WHERE id = $2", [name, id]);
 }
 
 async function getBrands() {
@@ -93,8 +102,10 @@ export {
   deleteProductById,
   updateProductById,
   getCategories,
+  getCategoryById,
   deleteCategoryById,
   insertCategory,
+  updateCategoryById,
   getBrands,
   getStores,
 };
