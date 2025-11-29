@@ -63,6 +63,7 @@ h1, h2, h3, h4, h5, h6 {
   --secondary-accent-colour: #ddec2f;
   --background-color: #ffffff;
   --border-colour: #e4e4e4;
+  --content-max-width: 1250px;
 }
 
 body {
@@ -73,11 +74,10 @@ body {
 }
 
 header {
+  display: flex;
+  justify-content: center;
   position: sticky;
   top: 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   border-bottom: 1px solid var(--border-colour);
   padding: 10px 0;
   background-color: var(--background-color);
@@ -100,6 +100,25 @@ nav a:hover {
   color: var(--main-accent-colour);
   text-decoration: underline;
   text-underline-offset: 6px;
+}
+
+main {
+  margin: auto;
+  max-width: var(--content-max-width);
+  text-align: center;
+  padding-top: 20px;
+}
+
+h2 {
+  color: var(--main-accent-colour);
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: var(--content-max-width);
 }
 
 .logo {
@@ -146,6 +165,10 @@ nav a:hover {
   place-items: center;
   text-align: center;
   gap: 8px;
+}
+
+.item-list.home {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .item-list li {
