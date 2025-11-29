@@ -6,10 +6,10 @@
   %>
 
   <li>
-    <img class="brand-image" src="<%= brand.image %>" alt="<%= brand.name %>"/>
-    <div>
-      <a href=<%= productPageUrl %> ><%= brand.name %></a>
-    </div>
+    <a href=<%= productPageUrl %> >
+      <img class="brand-image" src="<%= brand.image %>" alt="<%= brand.name %>"/>
+      <%= brand.name %>
+    </a>
   </li>
   <% }); %>
 </ul>

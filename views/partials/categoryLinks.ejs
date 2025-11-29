@@ -5,12 +5,14 @@
 %>
 
 <li class="category-listing">
-  <% if (category.image) { %>
-    <img class="item-image" src="<%= category.image %>" alt="<%= category.name %>"/>
-  <% } else { %>
-    <div class="no-preview">No preview</div>
-  <% } %>
-  <a href=<%= productPageUrl %> ><%= category.name %></a>
+  <a href=<%= productPageUrl %> >
+    <% if (category.image) { %>
+      <img class="item-image" src="<%= category.image %>" alt="<%= category.name %>"/>
+    <% } else { %>
+      <div class="no-preview">No preview</div>
+    <% } %>
+    <%= category.name %>
+  </a>
   <% if (showModifyLinks) { %>
   <div class="item-actions">
     <a class="update-link" href=<%= `/category/${category.id}/update` %> >Update</a>
