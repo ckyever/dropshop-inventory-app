@@ -34,6 +34,7 @@
     <option value="<%= brand.id %>" <%- brand.id == product.brand_id ? 'selected' : '' %>><%=brand.name%></option>
     <% }) %>
   </select>
+  <%- include("../partials/stockLevels") %>
   <input type="hidden" name="id" value="<%= product.id %>">
   <input type="hidden" name="redirect" value="<%= redirect %>">
   <button type="submit">Save</button>

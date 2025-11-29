@@ -8,6 +8,8 @@ import {
   getBrands,
   getStores,
   insertStockLevel,
+  getStoresByProductId,
+  deleteStockLevelsForProduct,
 } from "../db/queries.js";
 import { sendToPage } from "./utils.js";
 
@@ -31,12 +33,13 @@ const getNewProductPage = async (req, res) => {
   sendToPage(res, "pages/new-product", { categories, brands, stores, defaultCategory, defaultBrand }, {redirect: req.headers.referer});
 };
 
-const createStockLevelData = (productId, formData) => {
+const createStockLevelData = async (productId, formData) => {
   const regex = /^(store-id-)(.*)$/;
   for (const[key, value] of Object.entries(formData)) {
     const match = key.match(regex);
     if (match) {
-      insertStockLevel(match[2], productId, value)
+      console.log(`Inserting product ${productId} for store ${match[2]} with quantity ${value}`);
+      await insertStockLevel(match[2], productId, value)
     }
   }
 };
@@ -44,7 +47,7 @@ const createStockLevelData = (productId, formData) => {
 const addNewProduct = async (req, res) => {
   const formData = req.body;
   const productId = await insertProduct(formData);
-  createStockLevelData(productId, formData)
+  await createStockLevelData(productId, formData)
   res.redirect(formData.redirect ?? "/products");
 };
 
@@ -62,12 +65,15 @@ const getUpdateProductPage = async (req, res) => {
   const categories = await getCategories();
   const brands = await getBrands();
   const product = await getProductById(req.params.id);
-  sendToPage(res, "pages/update-product", { product, categories, brands }, {redirect: req.headers.referer});
+  const stores = await getStoresByProductId(req.params.id);
+  sendToPage(res, "pages/update-product", { product, categories, brands, stores }, {redirect: req.headers.referer});
 };
 
 const updateProduct = async (req, res) => {
   const formData = req.body;
   await updateProductById(formData.id, {name: formData.name, image: formData.image,price: formData.price, categoryId: formData.category, brandId: formData.brand});
+  await deleteStockLevelsForProduct(formData.id);
+  await createStockLevelData(formData.id, formData);
   res.redirect(formData.redirect ?? "/products");
 }
 

@@ -104,8 +104,27 @@ async function getStores() {
   return rows;
 }
 
+async function getStoresByProductId(productId) {
+  const { rows } = await pool.query(`
+    SELECT store.id, store.name, stock_levels.quantity
+    FROM
+      stock_levels
+      LEFT JOIN store ON (store.id = stock_levels.store_id)
+    WHERE
+      stock_levels.product_id = $1
+    ORDER BY
+      store.id
+  `, [productId]);
+  return rows;
+}
+
 async function insertStockLevel(storeId, productId, quantity) {
   await pool.query("INSERT INTO stock_levels (store_id, product_id, quantity) VALUES ($1, $2, $3)", [Number(storeId), Number(productId), Number(quantity)]);
+}
+
+async function deleteStockLevelsForProduct(productId) {
+  console.log("Deleting stock levels for product - " + productId);
+  await pool.query("DELETE FROM stock_levels WHERE product_id = $1", [productId]);
 }
 
 export {
@@ -121,5 +140,7 @@ export {
   updateCategoryById,
   getBrands,
   getStores,
+  getStoresByProductId,
   insertStockLevel,
+  deleteStockLevelsForProduct,
 };
