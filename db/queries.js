@@ -123,7 +123,6 @@ async function insertStockLevel(storeId, productId, quantity) {
 }
 
 async function deleteStockLevelsForProduct(productId) {
-  console.log("Deleting stock levels for product - " + productId);
   await pool.query("DELETE FROM stock_levels WHERE product_id = $1", [productId]);
 }
 

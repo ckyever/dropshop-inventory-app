@@ -38,7 +38,6 @@ const createStockLevelData = async (productId, formData) => {
   for (const[key, value] of Object.entries(formData)) {
     const match = key.match(regex);
     if (match) {
-      console.log(`Inserting product ${productId} for store ${match[2]} with quantity ${value}`);
       await insertStockLevel(match[2], productId, value)
     }
   }
