@@ -104,6 +104,9 @@ nav a:hover {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   margin: auto;
   max-width: var(--content-max-width);
   text-align: center;
@@ -122,6 +125,10 @@ fieldset, select, input {
 
 fieldset {
   border-width: 1px;
+}
+
+a {
+  text-decoration: none;
 }
 
 .content-container {
@@ -205,6 +212,7 @@ fieldset {
 
 .form-actions button[type="submit"] {
   background-color: var(--main-accent-colour);
+  border-color: var(--main-accent-colour);
   color: white;
 }
 
@@ -262,3 +270,10 @@ fieldset {
   padding: 0;
 }
 
+.add-button {
+  background-color: var(--main-accent-colour);
+  color: white;
+  border-radius: var(--slightly-rounded-corners);
+  padding: 8px;
+  align-self: center;
+}
