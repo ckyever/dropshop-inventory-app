@@ -190,16 +190,19 @@ a {
   gap: 4px;
 }
 
+.item-actions,
 .form-actions {
   width: 100%;
   display: flex;
   gap: 8px;
 }
 
+.item-actions > *,
 .form-actions > * {
   flex: 1;
 }
 
+.item-actions a,
 .form-actions button,
 .form-actions a {
   background-color: transparent;
@@ -210,13 +213,14 @@ a {
   cursor: pointer;
 }
 
+.item-actions .update-link,
 .form-actions button[type="submit"] {
   background-color: var(--main-accent-colour);
   border-color: var(--main-accent-colour);
   color: white;
 }
 
-.item-list{
+.item-list {
   padding: 0;
   list-style: none;
   display: grid;

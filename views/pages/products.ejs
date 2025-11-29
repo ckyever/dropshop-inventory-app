@@ -22,8 +22,10 @@
       <div class="name"><%= product.name %></div>
       <div class="price">$<%= product.price %></div>
       <div><%= isStoreView ? "Store" : "Total" %> Stock: <%= product.total_stock ?? 0 %></div>
-      <a href="/products/<%= product.id %>/update">Update</a>
-      <a href="/products/delete?id=<%= product.id %>">Delete</a>
+      <div class="item-actions">
+        <a class="update-link" href="/products/<%= product.id %>/update">Update</a>
+        <a href="/products/delete?id=<%= product.id %>">Delete</a>
+      </div>
     </li>
     <% }); %>
   </ul>
