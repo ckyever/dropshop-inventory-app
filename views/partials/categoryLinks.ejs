@@ -5,7 +5,11 @@
 %>
 
 <li class="category-listing">
-  <img class="item-image" src="<%= category.image %>" alt="<%= category.name %>"/>
+  <% if (category.image) { %>
+    <img class="item-image" src="<%= category.image %>" alt="<%= category.name %>"/>
+  <% } else { %>
+    <div class="no-preview">No preview</div>
+  <% } %>
   <a href=<%= productPageUrl %> ><%= category.name %></a>
   <% if (showModifyLinks) { %>
   <div class="modify-buttons">

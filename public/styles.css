@@ -22,13 +22,20 @@
   gap: 8px;
 }
 
-.item-image {
+.item-image, .no-preview {
   width: 100px;
   height: 175px;
   object-fit: contain;
 }
 
+.no-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .brand-image {
+  height: 175px;
   width: 175px;
   object-fit: contain;
 }
