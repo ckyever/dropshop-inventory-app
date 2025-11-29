@@ -57,8 +57,69 @@ h1, h2, h3, h4, h5, h6 {
 
 /* End of CSS Reset */
 
+:root {
+  --main-accent-colour: #17424B;
+  --main-accent-colour-lighter: #4b747b;
+  --secondary-accent-colour: #ddec2f;
+  --background-color: #ffffff;
+  --border-colour: #e4e4e4;
+}
+
+body {
+  margin: 0;
+  position: relative;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid var(--border-colour);
+  padding: 10px 0;
+  background-color: var(--background-color);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  font-size: 1.4rem;
+}
+
+nav a {
+  color: var(--main-accent-colour-lighter);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--main-accent-colour);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
 .logo {
-  width: 200px;
+  width: 150px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--main-accent-colour);
+  padding: 4px;
+}
+
+.search-box > * {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.search-icon {
+  width: 24px;
 }
 
 .create-form {

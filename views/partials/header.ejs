@@ -9,7 +9,7 @@
       <li><a href="/stores">Stores</a></li>
     </ul>
   </nav>
-  <form action="/products" method="GET">
+  <form class="search-box" action="/products" method="GET">
     <input
       type="text"
       name="search"
@@ -17,6 +17,6 @@
       placeholder="Search products"
       value="<%= previousQuery %>"
     />
-    <button type="submit">Search</button>
+    <button type="submit"><img class="search-icon" src="search.svg" alt="search icon"/></button>
   </form>
 </header>
