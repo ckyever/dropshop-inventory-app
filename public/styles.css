@@ -186,10 +186,26 @@ fieldset {
 .form-actions {
   width: 100%;
   display: flex;
+  gap: 8px;
 }
 
 .form-actions > * {
   flex: 1;
+}
+
+.form-actions button,
+.form-actions a {
+  background-color: transparent;
+  color: black;
+  text-decoration: none;
+  border: 1px solid grey;
+  border-radius: var(--slightly-rounded-corners);
+  cursor: pointer;
+}
+
+.form-actions button[type="submit"] {
+  background-color: var(--main-accent-colour);
+  color: white;
 }
 
 .item-list{
