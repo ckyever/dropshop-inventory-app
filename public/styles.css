@@ -110,7 +110,7 @@ main {
   margin: auto;
   max-width: var(--content-max-width);
   text-align: center;
-  padding-top: 20px;
+  padding: 20px;
 }
 
 h2 {
@@ -227,7 +227,7 @@ a {
   grid-template-columns: repeat(4, 1fr);
   place-items: center;
   text-align: center;
-  gap: 8px;
+  gap: 40px;
 }
 
 .item-list.home {
@@ -235,6 +235,7 @@ a {
 }
 
 .item-list li {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
