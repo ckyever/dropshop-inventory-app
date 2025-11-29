@@ -7,7 +7,7 @@ const getCategoryPage = async (req, res) => {
 };
 
 const getNewCategoryPage = async (req, res) => {
-  sendToPage(res, "pages/new-category");
+  sendToPage(res, "pages/new-category", {}, {redirect: req.headers.referer});
 };
 
 const addNewCategory = async (req, res) => {
