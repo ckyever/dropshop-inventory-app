@@ -170,6 +170,12 @@ fieldset {
   width: 100%;
 }
 
+.create-form legend {
+  color: grey;
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
 .stock-levels {
   width: 100%;
   display: flex;
