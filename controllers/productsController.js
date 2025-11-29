@@ -65,6 +65,7 @@ const getUpdateProductPage = async (req, res) => {
   const brands = await getBrands();
   const product = await getProductById(req.params.id);
   const stores = await getStoresByProductId(req.params.id);
+  console.log(product)
   sendToPage(res, "pages/update-product", { product, categories, brands, stores }, {redirect: req.headers.referer});
 };
 
