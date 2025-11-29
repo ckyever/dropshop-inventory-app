@@ -68,6 +68,8 @@ h1, h2, h3, h4, h5, h6 {
 body {
   margin: 0;
   position: relative;
+  font-family: "Afacad", sans-serif;
+  font-size: 1.1rem;
 }
 
 header {
