@@ -228,6 +228,12 @@ a:hover {
   gap: 4px;
 }
 
+.item-actions .delete-link,
+.item-actions .update-link {
+  flex-direction: row;
+}
+
+
 .icon {
   width: 25px;
 }

@@ -16,7 +16,7 @@
   <% if (showModifyLinks) { %>
   <div class="item-actions">
     <a class="update-link" href=<%= `/category/${category.id}/update` %> ><img class="icon" src="/pencil.svg" alt="pencil icon">Rename</a>
-    <a href=<%= `/category/delete?id=${category.id}`%> ><img class="icon" src="/delete.svg" alt="bin icon">Delete</a>
+    <a class="delete-link" href=<%= `/category/delete?id=${category.id}`%> ><img class="icon" src="/delete.svg" alt="bin icon">Delete</a>
   </div>
   <% } %>
 </li>
