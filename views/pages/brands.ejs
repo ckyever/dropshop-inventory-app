@@ -5,7 +5,7 @@
     const productPageUrl = encodeURI(`/products?brand=${brand.id}&title=${brand.name}`);
   %>
 
-  <li>
+  <li class="item-listing">
     <a href=<%= productPageUrl %> >
       <img class="brand-image" src="<%= brand.image %>" alt="<%= brand.name %>"/>
       <%= brand.name %>

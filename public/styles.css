@@ -282,6 +282,20 @@ a:hover {
   flex-direction: column;
 }
 
+.category-listing a,
+.item-listing a {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-listing:hover,
+.item-listing:hover {
+  outline: 1px solid var(--border-colour);
+}
+
 .store-list {
   display: flex;
   flex-direction: column;
