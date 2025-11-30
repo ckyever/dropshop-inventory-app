@@ -219,8 +219,8 @@ a:hover {
   gap: 4px;
 }
 
-.item-actions .icon {
-  width: 24px;
+.icon {
+  width: 25px;
 }
 
 .form-actions button,
@@ -306,6 +306,10 @@ a:hover {
   gap: 20px;
   list-style: none;
   padding: 0;
+}
+
+.store-listing {
+  display: flex;
 }
 
 .add-button {

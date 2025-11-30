@@ -5,6 +5,6 @@
     const productPageUrl = encodeURI(`/products?store=${store.id}&title=${store.name}`);
   %>
 
-  <li><a href=<%= productPageUrl %> class="item-label"><%= store.name %></a></li>
+  <li class="store-listing"><img class="icon" src="/location.svg" alt="location pin icon"><a href=<%= productPageUrl %> class="item-label"><%= store.name %></a></li>
   <% }); %>
 </ul>
