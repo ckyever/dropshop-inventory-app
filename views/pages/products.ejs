@@ -19,9 +19,9 @@
     <% products.forEach((product) => { %>
     <li>
       <img class="item-image" src="<%= product.image %>" alt="<%= product.name %>"/>
-      <div class="name"><%= product.name %></div>
+      <div class="name item-label"><%= product.name %></div>
       <div class="price">$<%= product.price %></div>
-      <div><%= isStoreView ? "Store" : "Total" %> Stock: <%= product.total_stock ?? 0 %></div>
+      <div class="stock"><%= isStoreView ? "Store" : "Total" %> Stock: <%= product.total_stock ?? 0 %></div>
       <div class="item-actions">
         <a class="update-link" href="/products/<%= product.id %>/update"><img class="icon" src="/pencil.svg" alt="pencil icon">Update</a>
         <a href="/products/delete?id=<%= product.id %>"><img class="icon" src="/delete.svg" alt="bin icon">Delete</a>

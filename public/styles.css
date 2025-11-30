@@ -61,6 +61,7 @@ h1, h2, h3, h4, h5, h6 {
   --main-accent-colour: #17424B;
   --main-accent-colour-lighter: #4b747b;
   --secondary-accent-colour: #ddec2f;
+  --secondary-text-colour: #5c5c5c;
   --background-color: #ffffff;
   --border-colour: #e5e7eb;
   --content-max-width: 1250px;
@@ -198,6 +199,7 @@ a:hover {
 .form-actions {
   width: 100%;
   display: flex;
+  gap: 8px;
 }
 
 .item-actions {
@@ -301,7 +303,7 @@ a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 20px;
   list-style: none;
   padding: 0;
 }
@@ -312,4 +314,12 @@ a:hover {
   border-radius: var(--slightly-rounded-corners);
   padding: 8px;
   align-self: center;
+}
+
+.item-label {
+  font-weight: 500;
+}
+
+.price, .stock {
+  color: var(--secondary-text-colour);
 }
