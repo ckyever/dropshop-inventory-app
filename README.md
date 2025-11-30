@@ -1,12 +1,12 @@
-# Express Template
+# DropShop Inventory Manager
 
-A template intended for projects built with NodeJS, Express, and EJS.
+An inventory management website for a tennis shop built with NodeJS, Express, EJS, and PostgreSQL.
 
-👉 [Live Demo](https://github.com/ckyever/express-template)
+👉 [Live Demo](https://dropshop-o3w4.onrender.com)
 
 ## Acknowledgement
 
-Inspired from [The Odin Project](https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs)
+Inspired from [The Odin Project](https://www.theodinproject.com/lessons/node-path-nodejs-inventory-application)
 
 ## License
 
