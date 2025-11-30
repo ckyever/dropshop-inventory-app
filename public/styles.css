@@ -195,11 +195,14 @@ a:hover {
   gap: 4px;
 }
 
-.item-actions,
 .form-actions {
   width: 100%;
   display: flex;
-  gap: 8px;
+}
+
+.item-actions {
+  display: flex;
+  gap: 12px;
 }
 
 .item-actions > *,
@@ -207,7 +210,17 @@ a:hover {
   flex: 1;
 }
 
-.item-actions a,
+.item-actions a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.item-actions .icon {
+  width: 24px;
+}
+
 .form-actions button,
 .form-actions a {
   background-color: transparent;
@@ -218,7 +231,6 @@ a:hover {
   cursor: pointer;
 }
 
-.item-actions .update-link,
 .form-actions button[type="submit"] {
   background-color: var(--main-accent-colour);
   border-color: var(--main-accent-colour);

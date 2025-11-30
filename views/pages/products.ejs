@@ -23,8 +23,8 @@
       <div class="price">$<%= product.price %></div>
       <div><%= isStoreView ? "Store" : "Total" %> Stock: <%= product.total_stock ?? 0 %></div>
       <div class="item-actions">
-        <a class="update-link" href="/products/<%= product.id %>/update">Update</a>
-        <a href="/products/delete?id=<%= product.id %>">Delete</a>
+        <a class="update-link" href="/products/<%= product.id %>/update"><img class="icon" src="/pencil.svg" alt="pencil icon">Update</a>
+        <a href="/products/delete?id=<%= product.id %>"><img class="icon" src="/delete.svg" alt="bin icon">Delete</a>
       </div>
     </li>
     <% }); %>
